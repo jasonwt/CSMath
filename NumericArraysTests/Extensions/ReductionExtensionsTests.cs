@@ -1,7 +1,6 @@
 ﻿namespace NumericArrays.Extensions.Tests;
 
 using NumericArrays.Types;
-using NumericArrays.Virtual.Reductions;
 
 [TestClass()]
 public class ReductionExtensionsTests {

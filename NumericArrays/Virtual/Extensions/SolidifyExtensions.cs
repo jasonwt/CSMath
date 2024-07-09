@@ -19,7 +19,7 @@
 
         #region Generic Methods
         public static IConcreteArray Solidify(this IVirtualArray virtualArray, IConcreteArrayFactory concreteArrayFactory, int requestedThreads = 1) {
-            IConcreteArray newConcreteArray = concreteArrayFactory.Construct(virtualArray.ValueType, virtualArray.Shape, requestedThreads);
+            IConcreteArray newConcreteArray = concreteArrayFactory.Construct(virtualArray.ValueType, virtualArray.Shape);
 
             newConcreteArray.Fill(virtualArray, requestedThreads);
 

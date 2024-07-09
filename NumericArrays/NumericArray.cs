@@ -29,7 +29,7 @@
             _strides = ComputeStrides(shape);
             _rank = shape.Length;
             _length = shape[0] * _strides[0];
-            _arrayValueType = typeof(T).NumericArrayValueTypeOf();
+            _arrayValueType = typeof(T).ArrayValueTypeOf();
         }
         ~NumericArray() {
             Dispose(false);

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericArrays", "NumericArrays\NumericArrays.csproj", "{8C41A75E-09DF-46B5-B32D-69CB107A2BC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericArraysProfile", "NumericArraysProfile\NumericArraysProfile.csproj", "{05EF8593-C9A7-4527-9EF6-9B78C92C8C33}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumericArraysTests", "NumericArraysTests\NumericArraysTests.csproj", "{E2979A80-EC17-4D74-8558-A1B0912E327A}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{8C41A75E-09DF-46B5-B32D-69CB107A2BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C41A75E-09DF-46B5-B32D-69CB107A2BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C41A75E-09DF-46B5-B32D-69CB107A2BC5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05EF8593-C9A7-4527-9EF6-9B78C92C8C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05EF8593-C9A7-4527-9EF6-9B78C92C8C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05EF8593-C9A7-4527-9EF6-9B78C92C8C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05EF8593-C9A7-4527-9EF6-9B78C92C8C33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2979A80-EC17-4D74-8558-A1B0912E327A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2979A80-EC17-4D74-8558-A1B0912E327A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2979A80-EC17-4D74-8558-A1B0912E327A}.Release|Any CPU.ActiveCfg = Release|Any CPU

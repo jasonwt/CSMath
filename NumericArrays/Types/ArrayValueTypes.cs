@@ -1,5 +1,6 @@
 ﻿namespace NumericArrays.Types {
     using System;
+    using System.IO;
     using System.Runtime.CompilerServices;
 
     public interface INumericArrayValueType : IConvertible, IComparable {
@@ -22,7 +23,57 @@
         Decimal
     }
 
-    public static class NumericArrayValueTypeExtensions {
+    public static class ArrayValueTypes {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool TryStreamRead(Stream stream, ArrayValueType arrayValueType, out ValueType readValue) {
+
+
+
+            readValue = arrayValueType switch {
+                ArrayValueType.Boolean => stream.ReadByte(),
+                ArrayValueType.SByte => throw new NotImplementedException(),
+                ArrayValueType.Byte => throw new NotImplementedException(),
+                ArrayValueType.Int16 => throw new NotImplementedException(),
+                ArrayValueType.UInt16 => throw new NotImplementedException(),
+                ArrayValueType.Int32 => throw new NotImplementedException(),
+                ArrayValueType.UInt32 => throw new NotImplementedException(),
+                ArrayValueType.Int64 => throw new NotImplementedException(),
+                ArrayValueType.UInt64 => throw new NotImplementedException(),
+                ArrayValueType.Half => throw new NotImplementedException(),
+                ArrayValueType.Single => throw new NotImplementedException(),
+                ArrayValueType.Double => throw new NotImplementedException(),
+                ArrayValueType.Decimal => throw new NotImplementedException(),
+                _ => throw new ArgumentException("Unsupported type", nameof(arrayValueType))
+            };
+
+            return false;
+
+        }
+
+        public static int SizeOf(this ArrayValueType valueType) {
+            return valueType switch {
+                ArrayValueType.Boolean => sizeof(bool),
+                ArrayValueType.SByte => sizeof(sbyte),
+                ArrayValueType.Byte => sizeof(byte),
+                ArrayValueType.Int16 => sizeof(short),
+                ArrayValueType.UInt16 => sizeof(ushort),
+                ArrayValueType.Int32 => sizeof(int),
+                ArrayValueType.UInt32 => sizeof(uint),
+                ArrayValueType.Int64 => sizeof(long),
+                ArrayValueType.UInt64 => sizeof(ulong),
+                ArrayValueType.Half => sizeof(short),
+                ArrayValueType.Single => sizeof(float),
+                ArrayValueType.Double => sizeof(double),
+                ArrayValueType.Decimal => sizeof(decimal),
+                _ => throw new ArgumentException("Unsupported type", nameof(valueType))
+            };
+        }
+        public static int SizeOf<T>()
+            where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T> {
+
+            return SizeOf(ArrayValueTypeOf<T>());
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ValueType CastToArrayValueType<T>(this T value, ArrayValueType valueType)
             where T : struct, IConvertible, IComparable, IComparable<T>, IEquatable<T> {
@@ -103,7 +154,8 @@
                 _ => throw new ArgumentException("Unsupported type", nameof(valueType))
             };
         }
-        public static ArrayValueType NumericArrayValueTypeOf(this Type type) {
+
+        public static ArrayValueType ArrayValueTypeOf(this Type type) {
             return Type.GetTypeCode(type) switch {
                 TypeCode.Boolean => ArrayValueType.Boolean,
                 TypeCode.SByte => ArrayValueType.SByte,
@@ -121,10 +173,10 @@
                 _ => throw new ArgumentException("Unsupported type", nameof(type))
             };
         }
-        public static ArrayValueType NumericArrayTypeOf<T>()
+        public static ArrayValueType ArrayValueTypeOf<T>()
             where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T> {
 
-            return NumericArrayValueTypeOf(typeof(T));
+            return ArrayValueTypeOf(typeof(T));
         }
         //public static TOutput CastValueTo<TOutput, TInput>(this TInput value, NumericArrayValueType tOutputType)
         //    where TOutput : struct, IComparable, IComparable<TOutput>, IConvertible, IEquatable<TOutput>

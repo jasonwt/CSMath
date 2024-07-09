@@ -38,7 +38,15 @@
         int ComputeLinearIndex(int[] indices);
         int[] ComputeIndices(int linearIndex);
         new INumericArray Clone();
+
+        void Fill(Func<int, ValueType> fillFunc, int requestedThreads = 1);
+        void Fill(INumericArray otherArray, int requestedThreads = 1);
+        void Fill(ValueType[] values, int requestedThreads = 1);
+        void Fill(IEnumerable<ValueType> values, int requestedThreads = 1);
+        void Fill(ValueType value, int requestedThreads = 1);
+        
         #endregion
+        // 509-945-4062
     }
 
     public interface INumericArray<T> : INumericArray, IEnumerable<T>
@@ -65,6 +73,12 @@
 
         #region Methods
         new INumericArray<T> Clone();
+
+        void Fill(Func<int, T> fillFunc, int requestedThreads = 1);
+        void Fill(INumericArray<T> otherArray, int requestedThreads = 1);
+        void Fill(T[] values, int requestedThreads = 1);
+        void Fill(IEnumerable<T> values, int requestedThreads = 1);
+        void Fill(T value, int requestedThreads = 1);
         #endregion
     }
 }
